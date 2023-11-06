@@ -1,0 +1,126 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:slip_id",
+ "creation": "2023-10-16 15:32:05.847689",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "slip_id",
+  "tenant_id",
+  "tenant_name",
+  "home_id",
+  "payment_date",
+  "column_break_j2opb",
+  "month_of_payment",
+  "monthly_rent",
+  "amount_paid",
+  "blnc_amount",
+  "fine_amount",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "slip_id",
+   "fieldtype": "Data",
+   "label": "SlipID",
+   "unique": 1
+  },
+  {
+   "fetch_from": "tenant_id.tenant_name",
+   "fieldname": "tenant_name",
+   "fieldtype": "Data",
+   "label": "TenantName"
+  },
+  {
+   "fieldname": "payment_date",
+   "fieldtype": "Datetime",
+   "label": "PayementDate"
+  },
+  {
+   "fetch_from": "month_of_payment.amount_paid",
+   "fieldname": "amount_paid",
+   "fieldtype": "Currency",
+   "label": "AmountPaid"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "PaymentSlip",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "amended_from.month_of_payment",
+   "fieldname": "month_of_payment",
+   "fieldtype": "Link",
+   "label": "MonthOfPayment",
+   "options": "MonthlyPayment"
+  },
+  {
+   "fetch_from": "amended_from.home_id",
+   "fieldname": "home_id",
+   "fieldtype": "Link",
+   "label": "HomeID",
+   "options": "HomeDocuments"
+  },
+  {
+   "fieldname": "tenant_id",
+   "fieldtype": "Link",
+   "label": "TenantID",
+   "options": "TenantsDocuments"
+  },
+  {
+   "fetch_from": "home_id.monthly_rent",
+   "fieldname": "monthly_rent",
+   "fieldtype": "Currency",
+   "label": "MonthlyRent"
+  },
+  {
+   "fieldname": "blnc_amount",
+   "fieldtype": "Currency",
+   "label": "BlncAmount"
+  },
+  {
+   "fieldname": "fine_amount",
+   "fieldtype": "Currency",
+   "label": "FineAmount"
+  },
+  {
+   "fieldname": "column_break_j2opb",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-11-03 14:27:47.575487",
+ "modified_by": "Administrator",
+ "module": "RentalHomeManagement",
+ "name": "PaymentSlip",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

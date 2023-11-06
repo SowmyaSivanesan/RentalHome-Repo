@@ -1,0 +1,94 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:allocation_id",
+ "creation": "2023-10-16 15:11:25.603261",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "allocation_id",
+  "home_id",
+  "tenant_id",
+  "join_date",
+  "vacate_date",
+  "amended_from",
+  "monthly_rent"
+ ],
+ "fields": [
+  {
+   "fieldname": "allocation_id",
+   "fieldtype": "Data",
+   "label": "AllocationID",
+   "unique": 1
+  },
+  {
+   "fetch_from": "amended_from.home_id",
+   "fieldname": "home_id",
+   "fieldtype": "Link",
+   "label": "HomeID",
+   "options": "HomeDocuments"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "AllocationDocuments",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "amended_from.tenant_id",
+   "fieldname": "tenant_id",
+   "fieldtype": "Link",
+   "label": "TenantID",
+   "options": "TenantsDocuments"
+  },
+  {
+   "fieldname": "join_date",
+   "fieldtype": "Datetime",
+   "label": "JoinDate"
+  },
+  {
+   "fieldname": "vacate_date",
+   "fieldtype": "Datetime",
+   "label": "VacateDate"
+  },
+  {
+   "fetch_from": "home_id.monthly_rent",
+   "fieldname": "monthly_rent",
+   "fieldtype": "Data",
+   "label": "MonthlyRent"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-11-02 16:16:53.261769",
+ "modified_by": "Administrator",
+ "module": "RentalHomeManagement",
+ "name": "AllocationDocuments",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

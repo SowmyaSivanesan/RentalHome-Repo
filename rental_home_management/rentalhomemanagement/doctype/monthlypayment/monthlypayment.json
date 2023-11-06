@@ -1,0 +1,138 @@
+{
+ "_comments": "[]",
+ "_liked_by": "[]",
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:payment_id",
+ "creation": "2023-10-16 15:25:04.555413",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "payment_type",
+  "payment_id",
+  "allocation_id",
+  "tenant_id",
+  "home_id",
+  "month_of_payment",
+  "column_break_j7dpp",
+  "monthly_rent",
+  "amount_paid",
+  "over_due",
+  "fine_amount",
+  "blnc_amount",
+  "amount_to_be_paid",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "payment_type",
+   "fieldtype": "Data",
+   "label": "PaymentType"
+  },
+  {
+   "fieldname": "payment_id",
+   "fieldtype": "Data",
+   "label": "PaymentID",
+   "unique": 1
+  },
+  {
+   "fetch_from": "allocation_id.home_id",
+   "fieldname": "home_id",
+   "fieldtype": "Data",
+   "label": "HomeID"
+  },
+  {
+   "fieldname": "amount_paid",
+   "fieldtype": "Currency",
+   "label": "AmountPaid"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "MonthlyPayment",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "fine_amount.month_of_payment",
+   "fieldname": "month_of_payment",
+   "fieldtype": "Date",
+   "label": "MonthOfPayment"
+  },
+  {
+   "fieldname": "allocation_id",
+   "fieldtype": "Link",
+   "label": "AllocationID",
+   "options": "AllocationDocuments"
+  },
+  {
+   "fetch_from": "allocation_id.tenant_id",
+   "fieldname": "tenant_id",
+   "fieldtype": "Data",
+   "label": "TenantID"
+  },
+  {
+   "fetch_from": "allocation_id.monthly_rent",
+   "fieldname": "monthly_rent",
+   "fieldtype": "Currency",
+   "label": "MonthlyRent"
+  },
+  {
+   "fieldname": "over_due",
+   "fieldtype": "Currency",
+   "label": "OverDue"
+  },
+  {
+   "fieldname": "fine_amount",
+   "fieldtype": "Currency",
+   "label": "FineAmount"
+  },
+  {
+   "fieldname": "amount_to_be_paid",
+   "fieldtype": "Currency",
+   "label": "AmountToBePaid"
+  },
+  {
+   "fetch_from": "fine_amount.blnc_amount",
+   "fieldname": "blnc_amount",
+   "fieldtype": "Currency",
+   "label": "BlncAmount"
+  },
+  {
+   "fieldname": "column_break_j7dpp",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-11-02 17:34:05.599381",
+ "modified_by": "Administrator",
+ "module": "RentalHomeManagement",
+ "name": "MonthlyPayment",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

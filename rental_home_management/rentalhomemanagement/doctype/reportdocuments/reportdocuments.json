@@ -1,0 +1,136 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:report_id",
+ "creation": "2023-10-16 15:36:53.267588",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "report_id",
+  "allocation_id",
+  "home_id",
+  "tenant_id",
+  "payment_id",
+  "month_of_payment",
+  "monthly_rent",
+  "amount_paid",
+  "over_due",
+  "fine_recipt_id",
+  "fine_deatils",
+  "blnc_due",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "report_id",
+   "fieldtype": "Data",
+   "label": "ReportID",
+   "unique": 1
+  },
+  {
+   "fetch_from": "allocation_id.tenant_id",
+   "fieldname": "tenant_id",
+   "fieldtype": "Data",
+   "label": "TenantID"
+  },
+  {
+   "fetch_from": "payment_id.over_due",
+   "fieldname": "over_due",
+   "fieldtype": "Data",
+   "label": "OverDue"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "ReportDocuments",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "allocation_id.monthly_rent",
+   "fieldname": "monthly_rent",
+   "fieldtype": "Currency",
+   "label": "MonthlyRent"
+  },
+  {
+   "fetch_from": "allocation_id.home_id",
+   "fieldname": "home_id",
+   "fieldtype": "Data",
+   "label": "HomeID"
+  },
+  {
+   "fieldname": "allocation_id",
+   "fieldtype": "Link",
+   "label": "AllocationID",
+   "options": "AllocationDocuments"
+  },
+  {
+   "fetch_from": "payment_id.month_of_payment",
+   "fieldname": "month_of_payment",
+   "fieldtype": "Data",
+   "label": "MonthOfPayment"
+  },
+  {
+   "fetch_from": "fine_recipt_id.blnc_due",
+   "fieldname": "blnc_due",
+   "fieldtype": "Data",
+   "label": "BlncDue"
+  },
+  {
+   "fieldname": "payment_id",
+   "fieldtype": "Link",
+   "label": "PaymentID",
+   "options": "MonthlyPayment"
+  },
+  {
+   "fetch_from": "payment_id.amount_paid",
+   "fieldname": "amount_paid",
+   "fieldtype": "Currency",
+   "label": "AmountPaid"
+  },
+  {
+   "fetch_from": "fine_recipt_id.fine_deatils",
+   "fieldname": "fine_deatils",
+   "fieldtype": "Data",
+   "label": "FineDetails"
+  },
+  {
+   "fieldname": "fine_recipt_id",
+   "fieldtype": "Link",
+   "label": "FineReciptID",
+   "options": "FineDetails"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-11-03 11:31:56.660332",
+ "modified_by": "Administrator",
+ "module": "RentalHomeManagement",
+ "name": "ReportDocuments",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
